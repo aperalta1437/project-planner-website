@@ -1,6 +1,8 @@
 package com.psu.ist412.team2.projectplannerwebsite.controller;
 
 import com.psu.ist412.team2.projectplannerwebsite.business.dto.request.form.SignupForm;
+import com.psu.ist412.team2.projectplannerwebsite.business.dto.response.SignupResponseEnum;
+import com.psu.ist412.team2.projectplannerwebsite.business.service.SignupFormService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -19,6 +21,13 @@ import java.io.IOException;
 @RequestMapping(value = "/signup")
 public class SignupController {
 
+    private final SignupFormService signupFormService;
+
+    @Autowired
+    public SignupController(SignupFormService signupFormService) {
+        this.signupFormService = signupFormService;
+    }
+
     @GetMapping
     public String getSignupPage(Model model) {
         model.addAttribute("signupForm", new SignupForm());
@@ -28,9 +37,7 @@ public class SignupController {
 
     @PostMapping(value = "/process-signup")
     public String processSignup(SignupForm signupForm, Model model) {
-        SignupFormService signupFormService = new SignupFormService(this.customerRepository,
-                this.deliveryAddressRepository);
-        SignupResponseEnum signupResponseEnum = signupFormService.processNewSignup(signupForm);
+        SignupResponseEnum signupResponseEnum = this.signupFormService.processNewSignup(signupForm);
         model.addAttribute("signupResponseEnum", signupResponseEnum);
         return "signup-response";
     }

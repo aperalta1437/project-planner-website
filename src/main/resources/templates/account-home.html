@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>MyPlanner</title>
 </head>
 
-<link href="jpsstyles.css" rel="stylesheet" type="text/css" />
-    <img src="the-happy-planner.png." width="960" height="200" alt="CAMshots" />
+<link th:href="@{/css/jpsstyles.css}" rel="stylesheet" type="text/css" />
+    <img th:src="@{/images/logo.png}" width="960" height="200" alt="CAMshots" />
 
     <style>
 	img {
@@ -21,7 +21,8 @@
 	body {
 	width: 100%;
 	opacity: 1;
-    background-image: url("plain-black-wallpaper.jpg");
+    background-image: url("images/plain-black-wallpaper.jpg");
+    color: white;
 	}
 </style>
 <style>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="pragma" content="no-cache" />
+  <meta http-equiv="cache-control" content="max-age=604800" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <title>The Happy Planner - Log-in</title>
+
+  <th:block th:replace="fragments/imports::imports"></th:block>
+  <!-- common-imports.// -->
+
+  <script type="text/javascript">
+      /// some script
+
+      // jquery ready start
+      $(document).ready(function () {
+        // jQuery code
+      });
+      // jquery end
+    </script>
+</head>
+
+<body>
+<div th:replace="fragments/header::header"></div>
+<!-- section-header.// -->
+
+<!-- ========================= SECTION CONTENT ========================= -->
+<section class="section-conten padding-y" style="min-height: 84vh">
+  <!-- ============================ COMPONENT LOGIN   ================================= -->
+  <div class="card mx-auto" style="max-width: 380px; margin-top: 100px">
+    <div class="card-body">
+      <h4 class="card-title mb-4">Log In</h4>
+      <th:block th:switch="${loginProcessIssueEnum}">
+        <h6
+                th:case="${T(com.psu.ist412.team2.projectplannerwebsite.controller.utils.LoginProcessIssueEnum).FAILED_LOGIN}"
+                th:text="${loginProcessIssueEnum.getLoginIssueMessage()}"
+                class="text-danger"
+        ></h6>
+        <h6
+                th:case="${T(com.psu.ist412.team2.projectplannerwebsite.controller.utils.LoginProcessIssueEnum).DISABLED_ACCOUNT}"
+                th:text="${loginProcessIssueEnum.getLoginIssueMessage()}"
+                class="text-danger"
+        ></h6>
+        <h6
+                th:case="${T(com.psu.ist412.team2.projectplannerwebsite.controller.utils.LoginProcessIssueEnum).EXPIRED_SESSION}"
+                th:text="${loginProcessIssueEnum.getLoginIssueMessage()}"
+                class="text-danger"
+        ></h6>
+      </th:block>
+      <form th:action="@{/login}" method="post">
+        <div class="form-group">
+          <input name="email" class="form-control" placeholder="Email" type="text" required />
+        </div>
+        <!-- form-group// -->
+        <div class="form-group">
+          <input
+                  name="password"
+                  class="form-control"
+                  placeholder="Password"
+                  type="password"
+                  required
+          />
+        </div>
+        <!-- form-group// -->
+
+        <div class="form-group">
+          <a th:href="@{/forgot-password}" class="float-right">Forgot password?</a>
+          <label class="float-left custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" checked="" />
+            <div class="custom-control-label">Remember Me</div>
+          </label>
+        </div>
+        <!-- form-group form-check .// -->
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </div>
+        <!-- form-group// -->
+      </form>
+    </div>
+    <!-- card-body.// -->
+  </div>
+  <!-- card .// -->
+
+  <p class="text-center mt-4">Don't have account? <a th:href="@{/signup}">Sign up</a></p>
+  <br /><br />
+  <!-- ============================ COMPONENT LOGIN  END.// ================================= -->
+</section>
+<!-- ========================= SECTION CONTENT END// ========================= -->
+
+<!-- ========================= FOOTER ========================= -->
+<footer class="section-footer border-top padding-y">
+  <div class="container">
+    <p class="float-md-right">&copy Copyright 2019 All rights reserved</p>
+    <p>
+      <a href="#">Terms and conditions</a>
+    </p>
+  </div>
+  <!-- //container -->
+</footer>
+<!-- ========================= FOOTER END // ========================= -->
+</body>
+</html>
