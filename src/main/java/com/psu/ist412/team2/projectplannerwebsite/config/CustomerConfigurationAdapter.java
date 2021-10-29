@@ -55,9 +55,9 @@ public class CustomerConfigurationAdapter extends WebSecurityConfigurerAdapter {
 //        http.sessionManagement()
 //                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS);
 //        http.authorizeRequests().antMatchers("/account/**").authenticated()
-        http.exceptionHandling().authenticationEntryPoint(new Http403ForbiddenEntryPoint()).and()
-                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .authorizeRequests().antMatchers("/**").permitAll();
+//        http.exceptionHandling().authenticationEntryPoint(new Http403ForbiddenEntryPoint()).and()
+                http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                .authorizeRequests().antMatchers("/**").authenticated();
 //                .antMatchers("/api/admin/account/**").permitAll()
 //                .anyRequest().authenticated();
     }

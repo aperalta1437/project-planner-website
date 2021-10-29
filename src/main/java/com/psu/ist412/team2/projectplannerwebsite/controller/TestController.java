@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(name = "/account")
+@RequestMapping(name = "/")
 public class TestController {
     @GetMapping
     public String getTestPage() {
