@@ -2,115 +2,114 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>MyPlanner</title>
-</head>
+    <title>My Planner</title>
 
-<link th:href="@{/css/jpsstyles.css}" rel="stylesheet" type="text/css" />
-    <img th:src="@{/images/logo.png}" width="960" height="200" alt="CAMshots" />
+    <th:block th:replace="fragments/imports::imports"></th:block>
+    <!-- common-imports.// -->
 
+<!--    <link th:href="@{/css/jpsstyles.css}" rel="stylesheet" type="text/css" />-->
+
+    <link th:href="@{/css/account.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
+    <script th:src="@{/js/account.js}" defer type="text/javascript"></script>
+
+<!--        <style>-->
+<!--    	img {-->
+<!--        display: block;-->
+<!--        margin-left: auto;-->
+<!--        margin-right: auto;-->
+<!--        text-align: center;-->
+<!--    	}-->
+<!--    	</style>-->
+
+<!--       <style>-->
+<!--    	body {-->
+<!--    	width: 100%;-->
+<!--    	opacity: 1;-->
+<!--        background-image: url("images/plain-black-wallpaper.jpg");-->
+<!--        color: white;-->
+<!--    	}-->
+<!--    </style>-->
+<!--    <style>-->
+<!--    body {-->
+<!--        color: white;-->
+<!--    }-->
+
+<!--    h1 {-->
+<!--        color: white;-->
+<!--    }-->
+<!--    </style>-->
+<!--    <style>-->
+<!--    a {-->
+<!--        color:white;-->
+<!--    }-->
+<!--    </style>-->
     <style>
-	img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-	}
-	</style>
 
-   <style>
-	body {
-	width: 100%;
-	opacity: 1;
-    background-image: url("images/plain-black-wallpaper.jpg");
-    color: white;
-	}
-</style>
-<style>
-body {
-    color: white;
-}
+    div.c {
+        font-size: 160%;
+    }
+    div.c {
+        line-height: 150%;
+    }
+    div.c {
+        position: absolute;
+        top: 265px;
+    }
+    </style>
+    <style>
 
-h1 {
-    color: white;
-}
-</style>
-<style>
-a {
-    color:white;
-}
-</style>
-<style>
+    div.s {
+        font-size: 160%;
+    }
+    div.s {
+        line-height: 150%;
+    }
+    div.s {
+        position: absolute;
+        top: 265px;
+        left: 903px;
+    }
+    </style>
+<!--    <style>-->
+<!--    ul {-->
+<!--      list-style-type: none;-->
+<!--      margin: 0;-->
+<!--      padding: 0;-->
+<!--      overflow: hidden;-->
+<!--      background-color: #333;-->
+<!--    }-->
 
-div.c {
-    font-size: 160%;
-}
-div.c {
-    line-height: 150%;
-}
-div.c {
-    position: absolute;
-    top: 265px;
-}
-</style>
-<style>
+<!--    li {-->
+<!--      float: left;-->
+<!--    }-->
 
-div.s {
-    font-size: 160%;
-}
-div.s {
-    line-height: 150%;
-}
-div.s {
-    position: absolute;
-    top: 265px;
-    left: 903px;
-}
-</style>
-<style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
+<!--    li a {-->
+<!--      display: block;-->
+<!--      color: white;-->
+<!--      text-align: center;-->
+<!--      padding: 14px 49px;-->
+<!--      text-decoration: none;-->
+<!--    }-->
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 49px;
-  text-decoration: none;
-}
-
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #111;
-}
-</style>
-
+<!--    /* Change the link color to #111 (black) on hover */-->
+<!--    li a:hover {-->
+<!--      background-color: #111;-->
+<!--    }-->
+<!--    </style>-->
+</head>
     <body>
-        <div class = "header">
-    <h1></h1>
+    <div class="mx-auto text-center spinner-component" id="div-add-to-cart-spinner-container">
+        <div class="spinner-border spinner-component" id="div-add-to-cart-spinner" role="status">
+            <span class="sr-only">Loading...</span>
         </div>
-    </body>
-
-    <nav>
-		<ul>
-			<li><a href="" target="_blank">Backlog</a></li>
-			<li><a href="" target="_blank">To Do This Week</a></li>
-			<li><a href="" target="_blank">In Progress</a></li>
-			<li><a href="" target="_blank">Completed</a></li>
-			<li><a href="" target="_blank">Special Events</a></li>
-		</ul>
-	</nav>
-
+    </div>
+    <div id="div-add-to-cart-response" role="alert">
+        <span>An error occurred while processing your request. Please try again later. If error persist, please contact the store manager.</span>
+    </div>
+    <div th:replace="fragments/account-header::account-header"></div>
+    <!-- section-header.// -->
     <section>
-
         <div class="c"><p>
             TO-DO LIST
 		</p></div>
@@ -118,6 +117,6 @@ li a:hover {
         <div class="s"><p>
             COMPLETED LIST
 		</p></div>
-
       </section>
+    </body>
 </html>
