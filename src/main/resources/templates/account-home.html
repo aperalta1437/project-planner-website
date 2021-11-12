@@ -13,6 +13,95 @@
     <link th:href="@{/css/home.css}" rel="stylesheet" type="text/css" />
     <script th:src="@{/js/account.js}" defer type="text/javascript"></script>
 
+    <link href="jpsstyles.css" rel="stylesheet" type="text/css" />
+    <img src="the-happy-planner.png." width="960" height="200" alt="CAMshots" />
+<style>
+	img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+	}
+	</style>
+
+   <style>
+	body {
+	width: 100%;
+	opacity: 1;
+    background-image: url("plain-black-wallpaper.jpg");
+	}
+</style>
+<style>
+body {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+</style>
+<style>
+a {
+    color:white;
+}
+</style>
+<style>
+
+body form {
+    color: black;
+}
+body form input {
+    width: 445px;
+    height: 40px;
+    padding: 0 5px;
+}
+body form button {
+    width: 40px;
+    height: 45px;
+    background: teal;
+    color: white;
+    cursor: pointer;
+}
+</style>
+<style>
+ul {
+  list-style-type: none;
+  width: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+
+}
+
+ul li {
+  width: 100%;
+  background-color: #fff;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 5px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+  margin: 5px 0;
+  color: black;
+}
+
+ul li span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  color: white;
+  text-align: center;
+  background-color: #e00;
+}
+</style>
+<style>
+    .container {
+        margin-top: 5px;
+        }
+</style>
+
 <!--        <style>-->
 <!--    	img {-->
 <!--        display: block;-->
@@ -113,6 +202,42 @@
         <div class="c"><p>
             TO-DO LIST
 		</p></div>
+        
+        <form>
+            <input type="text" name="text" id="txt" required>
+            <button type="submit" class="btn-list">
+                <i class="fa fa-plus" aria-hidden="true"></i>+
+            </button>
+        </form>
+        <div class="container">
+            <ul>
+                <li>Task 1<span>x</span></li>
+    
+            </ul>
+        </div>
+        <script>
+            const inputText = document.querySelector('#txt');
+            const myButton = document.querySelector('.btn-list');
+            const list = document.querySelector('.container ul');
+            myButton.addEventListener('click', (e)=>{
+                if(inputText.value != ""){
+                    e.preventDefault();
+                    const myLi = document.createElement('li');
+                    myLi.innerHTML = inputText.value;
+                    list.appendChild(myLi);
+                    const mySpan = document.createElement('span');
+                    mySpan.innerHTML = 'x';
+                    myLi.appendChild(mySpan);
+                }
+                const close = document.querySelectorAll('span');
+                for(let i=0; i<close.length; i++){
+                    close[i].addEventListener('click', ()=>{
+                        close[i].parentElement.style.display = "none";
+                    })
+                }
+                inputText.value = "";
+            });
+        </script>
 
         <div class="s"><p>
             COMPLETED LIST
