@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="pragma" content="no-cache" />
+	<meta http-equiv="cache-control" content="max-age=604800" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>The Happy Planner - Sign-up</title>
+
+	<th:block th:replace="fragments/imports::imports"></th:block> <!-- common-imports.// -->
+
+	<script src="js/signup.js" type="text/javascript" defer></script>
+
+	<script type="text/javascript">
+		/// some script
+
+		// jquery ready start
+		$(document).ready(function () {
+			// jQuery code
+
+		});
+		// jquery end
+	</script>
+
+</head>
+
+<body>
+
+
+<div th:replace="fragments/header::header"></div> <!-- section-header.// -->
+
+
+
+	<!-- ========================= SECTION CONTENT ========================= -->
+	<section class="section-content padding-y">
+
+		<!-- ============================ COMPONENT REGISTER   ================================= -->
+		<div class="card mx-auto" style="max-width:520px; margin-top:40px;">
+			<article class="card-body">
+				<header class="mb-4">
+					<h4 class="card-title">Sign Up</h4>
+				</header>
+				<form th:action="@{/signup/process-signup}" method="post" th:object="${signupForm}">
+					<small class="form-text text-muted">We'll never share your personal information with anyone
+						else.</small>
+					<div class="form-row">
+						<div class="col form-group">
+							<label>First name</label>
+							<input type="text" class="form-control" placeholder="" th:field="*{firstName}" required
+								minlength="2" maxlength="25">
+						</div> <!-- form-group end.// -->
+						<div class="col form-group">
+							<label>Last name</label>
+							<input type="text" class="form-control" placeholder="" th:field="*{lastName}" required
+								minlength="2" maxlength="35">
+						</div> <!-- form-group end.// -->
+					</div> <!-- form-row end.// -->
+					<div class="form-row">
+						<div class="col form-group">
+							<label><br>Middle name</label>
+							<input type="text" class="form-control" placeholder="" th:field="*{middleName}"
+								minlength="2" maxlength="25">
+						</div> <!-- form-group end.// -->
+						<div class="col form-group">
+							<label>Cell Phone Number<small class="form-text text-muted">(###-###-####)</small></label>
+							<input type="tel" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" class="form-control" placeholder=""
+								th:field="*{cellPhoneNumber}">
+						</div> <!-- form-group end.// -->
+					</div> <!-- form-row end.// -->
+					<div class="form-group">
+						<label>Email</label>
+						<input type="email" class="form-control" placeholder="" th:field="*{email}" required
+							minlength="3" maxlength="254">
+						<small class="form-text text-muted">NOTE: You will need to use this email to access your
+							account.</small>
+					</div> <!-- form-group end.// -->
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label>Create password</label>
+							<input class="form-control" id="input-password" type="password" th:field="*{password}"
+								required minlength="8" maxlength="64">
+						</div> <!-- form-group end.// -->
+						<div class="form-group col-md-6">
+							<label>Repeat password</label>
+							<input class="form-control" id="input-password-confirm" type="password" required
+								minlength="8" maxlength="64">
+						</div> <!-- form-group end.// -->
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary btn-block" id="btn-signup-submit"> Sign Up
+						</button>
+					</div> <!-- form-group// -->
+					<div class="form-group">
+						<label class="custom-control custom-checkbox"> <input type="checkbox"
+								class="custom-control-input" id="chkbox-terms-n-conditions">
+							<div class="custom-control-label"> I agree with <a href="#">terms and conditions</a> </div>
+						</label>
+					</div> <!-- form-group end.// -->
+				</form>
+			</article><!-- card-body.// -->
+		</div> <!-- card .// -->
+		<p class="text-center mt-4">Have an account? <a th:href="@{/login}">Log In</a></p>
+		<br><br>
+		<!-- ============================ COMPONENT REGISTER  END.// ================================= -->
+
+
+	</section>
+	<!-- ========================= SECTION CONTENT END// ========================= -->
+
+
+	<!-- ========================= FOOTER ========================= -->
+	<footer class="section-footer border-top padding-y">
+		<div class="container">
+			<p class="float-md-right">
+				&copy Copyright 2019 All rights reserved
+			</p>
+			<p>
+				<a href="#">Terms and conditions</a>
+			</p>
+		</div><!-- //container -->
+	</footer>
+	<!-- ========================= FOOTER END // ========================= -->
+
+
+
+</body>
+
+</html>
