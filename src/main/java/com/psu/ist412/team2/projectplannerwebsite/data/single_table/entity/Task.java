@@ -14,8 +14,6 @@ public class Task {
     private String name;
     @Column(name = "CUSTOMER_ID")
     private short customerId;
-    @Column(name = "BACKLOG_ID")
-    private short backlogId;
     @Column(name = "IS_DELETED")
     private boolean isDeleted;
     @Column(name = "CREATED_AT")
@@ -23,14 +21,18 @@ public class Task {
     @Column(name = "MODIFIED_AT")
     private Date modifiedAt;
 
+    @ManyToOne
+    @JoinColumn(name = "TASKS_LIST_ID", nullable = false)
+    private TasksList tasksList;
+
     public Task() {
     }
 
-    public Task(String name, short customerId, short backlogId, boolean isDeleted) {
+    public Task(String name, short customerId, boolean isDeleted, TasksList tasksList) {
         this.name = name;
         this.customerId = customerId;
-        this.backlogId = backlogId;
         this.isDeleted = isDeleted;
+        this.tasksList = tasksList;
     }
 
     public short getId() {
@@ -53,14 +55,6 @@ public class Task {
         this.customerId = customerId;
     }
 
-    public short getBacklogId() {
-        return backlogId;
-    }
-
-    public void setBacklogId(short backlogId) {
-        this.backlogId = backlogId;
-    }
-
     public boolean getIsDeleted() {
         return isDeleted;
     }
@@ -75,6 +69,14 @@ public class Task {
 
     public Date getModifiedAt() {
         return modifiedAt;
+    }
+
+    public TasksList getTasksList() {
+        return tasksList;
+    }
+
+    public void setTasksList(TasksList tasksList) {
+        this.tasksList = tasksList;
     }
 }
 

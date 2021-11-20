@@ -27,7 +27,7 @@ public class CustomerRepositoryTests {
     @Test
     public void testCreateCustomer() {
         Customer customer = new Customer();
-        customer.setEmail("amiguelp007@gmail.com");
+        customer.setEmail("amiguelp@gmail.com");
         customer.setPassword("P@ssword1");
         customer.setFirstName("Angel");
         customer.setLastName("Peralta");
@@ -41,7 +41,7 @@ public class CustomerRepositoryTests {
 
     @Test
     public void testFindCustomerByEmail() {
-        String email = "amiguelp007@gmail.com";
+        String email = "amiguelp@gmail.com";
 
         Customer customer = repo.findByEmail(email);
 

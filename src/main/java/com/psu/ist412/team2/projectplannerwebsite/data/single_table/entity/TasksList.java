@@ -2,10 +2,11 @@ package com.psu.ist412.team2.projectplannerwebsite.data.single_table.entity;
 
 import javax.persistence.*;
 import java.sql.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "BACKLOG")
-public class Backlog {
+@Table(name = "TASKS_LIST")
+public class TasksList {
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,10 +22,13 @@ public class Backlog {
     @Column(name = "MODIFIED_AT")
     private Date modifiedAt;
 
-    public Backlog() {
+    @OneToMany(mappedBy = "tasksList", fetch = FetchType.EAGER)
+    private List<Task> tasks;
+
+    public TasksList() {
     }
 
-    public Backlog(String name, short customerId, boolean isDeleted) {
+    public TasksList(String name, short customerId, boolean isDeleted) {
         this.name = name;
         this.customerId = customerId;
         this.isDeleted = isDeleted;
@@ -64,6 +68,14 @@ public class Backlog {
 
     public Date getModifiedAt() {
         return modifiedAt;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 }
 
