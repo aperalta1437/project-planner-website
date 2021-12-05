@@ -37,6 +37,7 @@ public class CustomerRepositoryTests {
         Customer existingCustomer = entityManager.find(Customer.class, savedCustomer.getId());
 
         assertThat(existingCustomer.getEmail()).isEqualTo(customer.getEmail());
+        
     }
 
     @Test
@@ -46,7 +47,17 @@ public class CustomerRepositoryTests {
         Customer customer = repo.findByEmail(email);
 
         assertThat(customer).isNotNull();
+    }
+
+    @Test
+    
+    public void testFindCustomerById(){
+        
+        short id = 12323; 
+        Customer customer = repo.findById(id);
+        assertThat(customer).isNotNull();
 
 
     }
+
 }
