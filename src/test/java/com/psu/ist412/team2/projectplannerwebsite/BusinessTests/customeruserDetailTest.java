@@ -32,7 +32,7 @@ public class customeruserDetailTest {
 
         CustomerUserDetails customerUser = new CustomerUserDetails(customer);
 
-        # assertSame(customerUser.getFullName(), "Paul Tom Tzivekis");
+        // assertSame(customerUser.getFullName(), "Paul Tom Tzivekis");
 
     }
     
