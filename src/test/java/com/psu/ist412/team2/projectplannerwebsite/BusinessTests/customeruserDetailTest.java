@@ -31,13 +31,8 @@ public class customeruserDetailTest {
         customer.setLastName("Tzivekis");
 
         CustomerUserDetails customerUser = new CustomerUserDetails(customer);
-<<<<<<< HEAD
-        customerUser.getFullName();
-        assertThat(customer).isNotNull();
-=======
 
-        // assertSame(customerUser.getFullName(), "Paul Tom Tzivekis");
->>>>>>> a991044085514329f47684b8fddd741292042737
+        assertSame(customerUser.getFullName(), "Paul Tom Tzivekis");
 
     }
     
