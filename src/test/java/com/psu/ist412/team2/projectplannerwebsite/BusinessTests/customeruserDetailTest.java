@@ -36,6 +36,7 @@ public class customeruserDetailTest {
 
         CustomerUserDetails customerUser = new CustomerUserDetails(customer);
         customerUser.getFullName();
+        assertThat(customer).isNotNull();
 
     }
     
